@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="noise"></div>
     <header class="app-header">
       <div class="container header__inner">
         <a href="#top" class="logo" aria-label="MetaRefund home">MetaRefund</a>
@@ -54,36 +53,53 @@
               <li>Полная история сделок и тикетов пользователя</li>
             </ul>
           </div>
-          <div class="hero__card" aria-label="Прогресс текущей операции">
-            <header>
-              <h2>Текущая операция</h2>
-              <span class="status-pill status-pill--idle" id="opStatus">Ожидание</span>
-            </header>
-            <div class="progress">
-              <div class="progress__bar" id="opProgress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+          <div class="hero__preview" aria-label="Превью текущей операции и сценария обмена">
+            <div class="hero-preview__card">
+              <div class="hero-preview__header">
+                <h2>Текущая операция</h2>
+                <span class="status-pill status-pill--idle" id="opStatus">Ожидание</span>
+              </div>
+              <div class="progress">
+                <div
+                  class="progress__bar"
+                  id="opProgress"
+                  role="progressbar"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                ></div>
+              </div>
+              <dl class="operation-meta">
+                <div>
+                  <dt>Тип</dt>
+                  <dd id="opType">—</dd>
+                </div>
+                <div>
+                  <dt>Отдаёте</dt>
+                  <dd id="opFrom">—</dd>
+                </div>
+                <div>
+                  <dt>Получаете</dt>
+                  <dd id="opTo">—</dd>
+                </div>
+                <div>
+                  <dt>ETA</dt>
+                  <dd id="opEta">≈ 2 мин</dd>
+                </div>
+              </dl>
+              <p class="hero__footnote">
+                Для крупных сумм применяется ручная проверка и двухфакторное
+                подтверждение сотрудником поддержки.
+              </p>
             </div>
-            <dl class="operation-meta">
-              <div>
-                <dt>Тип</dt>
-                <dd id="opType">—</dd>
-              </div>
-              <div>
-                <dt>Отдаёте</dt>
-                <dd id="opFrom">—</dd>
-              </div>
-              <div>
-                <dt>Получаете</dt>
-                <dd id="opTo">—</dd>
-              </div>
-              <div>
-                <dt>ETA</dt>
-                <dd id="opEta">≈ 2 мин</dd>
-              </div>
-            </dl>
-            <p class="hero__footnote">
-              Для крупных сумм применяется ручная проверка и двухфакторное
-              подтверждение сотрудником поддержки.
-            </p>
+            <div class="hero-preview__card hero-preview__card--secondary" aria-hidden="true">
+              <p class="hero-preview__label">Flow пользователя</p>
+              <ul class="hero-preview__list">
+                <li>Подключение Tonkeeper / WalletConnect</li>
+                <li>Депозит TON на выделенный адрес</li>
+                <li>Автосвап в USDT и моментальный вывод</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -642,4 +658,4 @@
 
     <script src="script.js" defer></script>
   </body>
-</html>
+</html
