@@ -656,6 +656,40 @@
       </div>
     </div>
 
+    <span>Подтвердите пароль</span>
+            <input type="password" name="confirmPassword" required minlength="6" placeholder="••••••" autocomplete="new-password" />
+          </label>
+          <div class="form-error is-hidden" id="loginError" role="alert" aria-live="assertive"></div>
+          <button class="primary-btn" type="submit">Зарегистрироваться</button>
+          <p class="modal__note">После регистрации можно подключить кошелёк и завершить KYC.</p>
+        </form>
+      </div>
+    </div>
+
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAe62dED0Pe3FJ-YFa3zA--rMUyhRDEkno",
+    authDomain: "metaswap-80b28.firebaseapp.com",
+    projectId: "metaswap-80b28",
+    storageBucket: "metaswap-80b28.firebasestorage.app",
+    messagingSenderId: "906312532303",
+    appId: "1:906312532303:web:cfe99eec1414ac07eb453a",
+    measurementId: "G-JMSQ9ZJELH"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
     <script src="script.js" defer></script>
   </body>
 </html
