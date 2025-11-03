@@ -666,28 +666,77 @@
       </div>
     </div>
 
-    <script type="module">
-  // Import the functions you need from the SDKs you need
+<script type="module">
+  // 🚀 Импорт Firebase SDK
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+  import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword 
+  } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+  import { 
+    getFirestore, 
+    collection, 
+    addDoc, 
+    serverTimestamp 
+  } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // 🔑 Твоя конфигурация Firebase (актуальные данные)
   const firebaseConfig = {
     apiKey: "AIzaSyAe62dED0Pe3FJ-YFa3zA--rMUyhRDEkno",
     authDomain: "metaswap-80b28.firebaseapp.com",
     projectId: "metaswap-80b28",
-    storageBucket: "metaswap-80b28.firebasestorage.app",
+    storageBucket: "metaswap-80b28.appspot.com", // ✅ исправлено
     messagingSenderId: "906312532303",
     appId: "1:906312532303:web:cfe99eec1414ac07eb453a",
     measurementId: "G-JMSQ9ZJELH"
   };
 
-  // Initialize Firebase
+  // ⚙️ Инициализация Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // 🧠 Логика регистрации / входа
+  const loginForm = document.getElementById("loginForm");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = e.target.email.value.trim();
+      const password = e.target.password.value.trim();
+
+      try {
+        // 🔐 Пытаемся войти
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        alert("✅ Вход выполнен успешно!");
+
+        logEvent(analytics, "login", { method: "email" });
+      } catch (err) {
+        // 🧾 Если пользователя нет — создаём
+        if (err.code === "auth/user-not-found") {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+
+          // 💾 Сохраняем данные в Firestore
+          await addDoc(collection(db, "users"), {
+            uid: user.uid,
+            email: user.email,
+            createdAt: serverTimestamp()
+          });
+
+          alert("🎉 Регистрация успешна!");
+          logEvent(analytics, "sign_up", { method: "email" });
+        } else {
+          alert("❌ Ошибка: " + err.message);
+        }
+      }
+    });
+  }
 </script>
 
     <script src="script.js" defer></script>
