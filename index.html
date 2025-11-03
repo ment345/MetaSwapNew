@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetaRefund — мгновенный обмен криптовалют</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="logo">MetaRefund</div>
+      <nav class="nav">
+        <a href="#exchange">Обмен</a>
+        <a href="#advantages">Преимущества</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="header__btn" href="#exchange">Начать обмен</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="exchange">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1>Обмен криптовалюты за 5 минут</h1>
+          <p>MetaRefund — современный обменный сервис с прозрачными курсами и круглосуточной поддержкой. Совершайте безопасные сделки по выгодному курсу без скрытых комиссий.</p>
+          <div class="hero__stats">
+            <div>
+              <span class="hero__stats-label">Выполнено обменов</span>
+              <span class="hero__stats-value" data-counter="84239">84 239</span>
+            </div>
+            <div>
+              <span class="hero__stats-label">Среднее время</span>
+              <span class="hero__stats-value">4 мин.</span>
+            </div>
+            <div>
+              <span class="hero__stats-label">Страхование сделок</span>
+              <span class="hero__stats-value">до $100k</span>
+            </div>
+          </div>
+        </div>
+        <div class="exchange-card">
+          <div class="exchange-card__header">
+            <h2>Онлайн обмен</h2>
+            <span class="badge">24/7</span>
+          </div>
+          <div class="exchange-card__form">
+            <label class="field">
+              <span>Отдаю</span>
+              <div class="field__input">
+                <input type="number" id="fromAmount" min="0" step="0.0001" value="1" />
+                <select id="fromCurrency">
+                  <option value="BTC">BTC</option>
+                  <option value="ETH">ETH</option>
+                  <option value="USDT">USDT</option>
+                  <option value="BNB">BNB</option>
+                </select>
+              </div>
+            </label>
+            <label class="field">
+              <span>Получаю</span>
+              <div class="field__input">
+                <input type="number" id="toAmount" min="0" step="0.0001" value="27348.12" />
+                <select id="toCurrency">
+                  <option value="USDT">USDT</option>
+                  <option value="BTC">BTC</option>
+                  <option value="ETH">ETH</option>
+                  <option value="RUB">RUB</option>
+                </select>
+              </div>
+            </label>
+            <label class="field">
+              <span>Ваша карта / кошелёк</span>
+              <input type="text" placeholder="Введите реквизиты" />
+            </label>
+            <button class="primary-btn" id="calculateBtn">Рассчитать обмен</button>
+            <p class="exchange-card__footnote">Курс обновляется каждые 15 секунд. Комиссия сервиса уже включена.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners">
+      <div class="container partners__inner">
+        <p>Нам доверяют более 70 криптопроектов</p>
+        <div class="partners__logos" aria-hidden="true">
+          <span>Ledger</span>
+          <span>Binance</span>
+          <span>TRON</span>
+          <span>Polygon</span>
+          <span>Kraken</span>
+          <span>Bybit</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="advantages" id="advantages">
+      <div class="container">
+        <h2>Почему выбирают MetaRefund</h2>
+        <div class="advantages__grid">
+          <article>
+            <div class="icon icon--shield"></div>
+            <h3>Полная прозрачность</h3>
+            <p>Вы всегда видите конечную сумму и размер комиссии до подтверждения операции.</p>
+          </article>
+          <article>
+            <div class="icon icon--clock"></div>
+            <h3>Мгновенные выплаты</h3>
+            <p>Оптимизированные алгоритмы обработки заявок позволяют завершить обмен меньше чем за 5 минут.</p>
+          </article>
+          <article>
+            <div class="icon icon--support"></div>
+            <h3>Поддержка 24/7</h3>
+            <p>Служба поддержки отвечает в течение 2 минут в Telegram и по e-mail.</p>
+          </article>
+          <article>
+            <div class="icon icon--rate"></div>
+            <h3>Выгодные курсы</h3>
+            <p>Мы агрегируем ликвидность с ведущих бирж и обеспечиваем лучший курс на рынке.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="container steps__inner">
+        <div class="steps__copy">
+          <h2>Как начать обмен за 3 шага</h2>
+          <p>MetaRefund обеспечивает комфортную работу как для новичков, так и для профессиональных трейдеров. Вам достаточно выполнить несколько простых шагов.</p>
+          <ul>
+            <li>Выберите направление обмена и заполните реквизиты.</li>
+            <li>Подтвердите заявку и произведите оплату удобным способом.</li>
+            <li>Получите средства на свой кошелёк или карту в течение нескольких минут.</li>
+          </ul>
+          <a class="secondary-btn" href="#faq">Узнать подробнее</a>
+        </div>
+        <div class="steps__card">
+          <div class="steps__card-header">
+            <span>Онлайн мониторинг</span>
+            <span class="dot"></span>
+          </div>
+          <div class="steps__card-body">
+            <div class="steps__rate">
+              <div>
+                <p>Текущий курс</p>
+                <strong id="liveRate">1 BTC = 27 348 USDT</strong>
+              </div>
+              <span class="rate-indicator rate-indicator--up">+2.4%</span>
+            </div>
+            <div class="steps__progress">
+              <span>Ход операции</span>
+              <div class="progress-bar">
+                <span class="progress-bar__value" id="progressBar" style="width: 45%"></span>
+              </div>
+              <small>Среднее время подтверждения: 2 мин. 15 сек.</small>
+            </div>
+            <div class="steps__support">
+              <div class="avatar"></div>
+              <div>
+                <p>Анна, служба поддержки</p>
+                <span>Онлайн сейчас</span>
+              </div>
+              <button class="tertiary-btn">Написать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <h2>Отзывы клиентов</h2>
+        <div class="reviews__grid">
+          <figure>
+            <blockquote>
+              «Пользуюсь MetaRefund уже полгода. Курсы всегда в рынке, а деньги приходят буквально за пару минут.»
+            </blockquote>
+            <figcaption>
+              <strong>Алексей П.</strong>
+              <span>Трейдер</span>
+            </figcaption>
+          </figure>
+          <figure>
+            <blockquote>
+              «Отличный сервис для фиатных выплат. Поддержка помогла решить вопрос с реквизитами за несколько минут.»
+            </blockquote>
+            <figcaption>
+              <strong>Екатерина Л.</strong>
+              <span>Маркетолог</span>
+            </figcaption>
+          </figure>
+          <figure>
+            <blockquote>
+              «Быстрый KYC и удобная панель. Сервис стал основным решением для вывода средств из бирж.»
+            </blockquote>
+            <figcaption>
+              <strong>Игорь С.</strong>
+              <span>Финансовый аналитик</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta__inner">
+        <div>
+          <h2>Готовы обменять криптовалюту?</h2>
+          <p>Создайте заявку и получите подтверждение сделки менее чем за 2 минуты. MetaRefund — ваш надёжный партнёр на рынке криптообмена.</p>
+        </div>
+        <a class="primary-btn" href="#exchange">Создать заявку</a>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <details open>
+          <summary>Какие валюты доступны для обмена?</summary>
+          <p>Мы поддерживаем более 30 цифровых активов: BTC, ETH, USDT, BNB, TRX и другие. Полный список обновляется в личном кабинете.</p>
+        </details>
+        <details>
+          <summary>Сколько времени занимает обмен?</summary>
+          <p>Среднее время — от 3 до 7 минут, в зависимости от загруженности сети и выбранного направления.</p>
+        </details>
+        <details>
+          <summary>Нужно ли проходить верификацию?</summary>
+          <p>Для операций свыше 5 000 USDT требуется одноразовая верификация личности. Для меньших сумм достаточно подтверждения почты.</p>
+        </details>
+        <details>
+          <summary>Как защищены мои средства?</summary>
+          <p>Мы используем холодное хранение, многофакторную авторизацию и страхование сделок до 100 000 USD.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="logo">MetaRefund</div>
+        <p>© 2024 MetaRefund. Все права защищены.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Пользовательское соглашение</a>
+        <a href="mailto:support@metarefund.io">support@metarefund.io</a>
+      </div>
+      <div class="footer__socials">
+        <a href="#" aria-label="Telegram" class="social social--tg"></a>
+        <a href="#" aria-label="Twitter" class="social social--tw"></a>
+        <a href="#" aria-label="YouTube" class="social social--yt"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
